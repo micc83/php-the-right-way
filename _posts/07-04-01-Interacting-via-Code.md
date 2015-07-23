@@ -15,7 +15,7 @@ questo:
 <?php
 foreach ($db->query('SELECT * FROM tabella') as $row) {
     echo "<li>".$row['campo1']." - ".$row['campo2']."</li>";
-}
+}ge
 ?>
 </ul>
 {% endhighlight %}
@@ -60,7 +60,10 @@ $db = new PDO('mysql:host=localhost;dbname=testdb;charset=utf8', 'utente', 'pass
 include 'models/FooModel.php';
 
 // Crea un'istanza
-$fooList = new FooModel($db);
+$foo = new FooModel($db);
+
+// Ottiene la lista attraverso il metodo pubblico
+$fooList = $foo->getAllFoos();
 
 // Mostra una vista
 include 'views/foo-list.php';
